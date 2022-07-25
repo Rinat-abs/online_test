@@ -1,0 +1,33 @@
+<%- include('./blocks/head.ejs')%>
+<%- include('./blocks/navbar.ejs')%>
+
+<div class="container">
+    <div class="search">
+        <label for="search__input">Поиск по вопросам</label>
+        <input class="search__input" placeholder="Поиск" id="search__input">
+
+        <div class="search__items">
+        <%
+        for(let i = 0; i < test.length; i++)
+        {
+            %>
+                <div class="search__item search__hide">
+                    <div class="search__question">
+                        <%=test[i].question%>
+                    </div>
+                    <div class="search__answer">
+                        Ответ: <%=test[i].answers[0]%>
+                    </div>
+                </div>
+            <%
+        }
+        %>
+        </div>
+    </div>
+    
+    
+<script src="../../js/search.js"></script>
+</div>
+
+
+<%- include('./blocks/footer.ejs')%>

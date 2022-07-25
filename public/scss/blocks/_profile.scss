@@ -1,0 +1,35 @@
+.profile {
+    margin-top: 50px;
+    
+    &__name {
+        font-size: 30px;
+        color:  #4b85e3;
+        &>span {
+            font-size: 24px;
+            color:rgb(61, 52, 53)
+        }
+    }
+    &__login {
+        font-size: 30px;
+        color:  #4b85e3;
+        &>span {
+            font-size: 24px;
+            color:rgb(61, 52, 53)
+        }
+    }
+    &__pass {
+        font-size: 20px;
+        margin-top: 30px;
+        &>a {
+            padding: 5px;
+            color: #4b85e3;
+            border: 1px solid #4b85e3;
+            border-radius: 6px;
+            transition: 0.4s all;
+            &:hover {
+                color: #ffffff;
+                background: #4b85e3;
+            }
+        }
+    }
+}

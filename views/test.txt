@@ -1,0 +1,50 @@
+<%- include('./blocks/head.ejs')%>
+<%- include('./blocks/navbar.ejs')%>
+
+<form  method="POST" action="/test" method="POST">
+
+<%
+    for( let q = 0; q < test.length; q++)
+    {
+        let randomArr = [];
+
+        for( let i = 0; i < 5;)
+        {
+            let randomNum = getRandomNum(count);
+            if (randomArr.indexOf(randomNum) == -1)
+            {
+                randomArr.push(randomNum);
+                i++;
+            }
+        }
+
+        %>
+
+        <p><%= q + 1%>) <%= test[q].question%></p>
+        <input type="hidden" value="<%= test[q].question%>" name="question<%=q+1%>">
+
+        <%
+
+        // Вывод перемешанных ответов
+        for ( let i = 0; i < randomArr.length; i++)
+        {
+        %>
+            <p>
+                <input type="radio" id="answer<%=q+1%><%=i+1%>" name="answer<%=q+1%>" value="<%=test[q].answers[randomArr[i]] %>">
+                <label for="answer<%=q+1%><%=i+1%>"><%= test[q].answers[randomArr[i]]  %>  </label>
+            </p>
+        <%
+        }
+
+        %>
+        <br> <hr> <br>
+        <%
+        
+    }
+%>
+<button type="submit">отправить</button>
+</form>
+
+
+
+<%- include('./blocks/footer.ejs')%>

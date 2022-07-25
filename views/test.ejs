@@ -1,0 +1,65 @@
+<%- include('./blocks/head.ejs')%>
+<%- include('./blocks/navbar.ejs')%>
+
+
+
+<div class="container">
+    <div class="test test_test">
+        <h1 class="test__title">
+            Тест <span>"<%=test.name%>"</span>
+        </h1>
+        <%if(testArr.length > 0 && (typeof testArr) != 'undefined') {%>
+        <div class="test__items">
+            <div class="test__item">
+                <div class="test__item__title">
+                    Случайные вопросы
+                </div>
+                <a href="/tests/<%=test.id%>/random">Начать</a>
+            </div>
+            
+            <%if(testArr.length >= 40) {%>
+                <div class="test__item">
+                    <div class="test__item__title">
+                        Циклическое прохождение теста
+                    </div>
+                    <div class="test__item__extra"
+                        <%
+                            if(!currentCycle)
+                            {
+                                %>
+                                style="justify-content: center"
+                                <%
+                            }
+                        %>
+                    >
+                        <div class="test__item__cycle">
+                            <%=currentCycle%> / <%=cycleSize%>
+                        </div>
+                        <%
+                            if(currentCycle > 1 || currentCycle == 1)
+                            {
+                                %>
+                                <form action="/tests/<%=test.id%>/reset" class="test__item__reset" method="POST">
+                                    <input type="hidden" value="<%=test.id%>" name="reset">
+                                    <input type="hidden" name="_csrf" value="<%=csrf%>">
+                                    <button type="submit">Сбросить</button>
+                                </form>
+                                <%
+                            }
+                        %>
+                        
+                        
+                    </div>
+                    <a href="/tests/<%=test.id%>/cycle">Начать</a>
+                    
+                </div>
+            <%}%>
+
+        </div>
+        <%}%>
+    </div>
+</div>
+
+
+
+<%- include('./blocks/footer.ejs')%>

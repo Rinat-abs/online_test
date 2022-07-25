@@ -1,0 +1,38 @@
+﻿1.Что такое UX?
+A)	User Experience
+B)	User extreme
+C)	User Interface
+D)	User Manipulation
+E)	User Vision
+
+2. Что такое UI?
+A)	User Interface
+B)	User Ixperience
+C)	User Manipulation
+D)	User Internet
+E)	User Adaptation
+
+3. Укажите программу для дизайна интерфейса
+A)	Figma
+B)	Adobe premiere pro
+C)	Microsoft word
+D)	Opera software
+E)	Adobe InDesign
+
+4.Совокупность инструментов и приемов общения человека и ЭВМ – это:
+A)	Пользовательский интерфейс
+B)	Базовая система ввода вывода
+C)	Операционная система
+D)	Периферийное устройство
+E)	Драйверы
+
+5.Вид интерфейса, в котором взаимодействие осуществляется через набор команд, вводимых с клавиатуры – это:
+A)	Командный интерфейс
+B)	Графический интерфейс
+C)	Голосовой интерфейс
+D)	Мимический интерфейс
+E)	VR интерфейс
+
+
+
+

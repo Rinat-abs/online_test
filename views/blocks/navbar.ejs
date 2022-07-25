@@ -1,0 +1,63 @@
+<header class="header ">
+    <div class="container">
+        <div class="header__logo">
+            <a href="/tests">Онлайн тесты</a>
+        </div>
+        <ul class="header__navbar">
+            <!-- <li class="header__navbar__item <%if((typeof isHome !== 'undefined')) {%> header__navbar__item_active <%}%>">
+                <a href="/">Главная</a>
+            </li>
+             --> 
+            
+            
+            
+            <% if(isAuth) {%>
+                <li class="header__navbar__item <%if((typeof isTests !== 'undefined')) {%> header__navbar__item_active <%}%>">
+                    <a href="/tests">Мои тесты</a>
+                </li>
+                <li class="header__navbar__item <%if((typeof isProgress !== 'undefined')) {%> header__navbar__item_active <%}%>">
+                    <a href="/progress">Прогресс</a>
+                </li>
+                <li class="header__navbar__item <%if((typeof isProfile !== 'undefined')) {%> header__navbar__item_active <%}%>">
+                    <a href="/profile">Личный кабинет</a>
+                </li>
+                <li class="header__navbar__item">
+                    <a href="/login/logout">Выход</a>
+                </li>
+            <%}
+                else
+                {
+                    %>
+                    <li class="header__navbar__item <%if((typeof isLogin !== 'undefined')) {%> header__navbar__item_active <%}%>">
+                        <a href="/login">Авторизация</a>
+                    </li>
+                    <!--<li class="header__navbar__item <%if((typeof isRegister !== 'undefined')) {%> header__navbar__item_active <%}%>">
+                        <a href="/register">Регистрация</a>
+                    </li> --> 
+                    <%
+                }
+            %>
+
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+    </div>
+	<%
+		if((typeof addMenu) !== 'undefined')
+		{
+			%>
+			<script src="<%=addMenu%>"></script>
+			<%
+		}
+		else 
+		{
+			%>
+			<script src="../js/menu.js"></script>
+			<%
+		}
+	%>
+</header>

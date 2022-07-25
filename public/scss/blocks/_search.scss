@@ -1,0 +1,39 @@
+.search {
+    margin-top: 50px;
+    &>label {
+        display: block;
+        text-align: center;
+        margin-bottom: 15px;
+        color:  #4b85e3;
+        font-size: 25px;
+    }
+
+    &__input {
+        margin: 0 auto;
+        display: block;
+        width: 350px;
+        border: 2px solid #4b85e3;
+        padding: 6px;
+        // border-bottom: 2px solid #4b85e3;
+        box-shadow: 0px 1px 5px 0px rgba(39,67,194,1);
+        outline: none;
+        border-radius: 10px;
+        font-size: 17px;
+    }
+
+    &__items {
+        margin-top: 25px;
+        
+    }
+
+    &__item {
+        margin-bottom: 12px;
+        padding: 10px;
+        border-radius: 7px;
+        border: 2px solid #4b85e3;
+    }
+
+    &__hide {
+        display: none;
+    }
+}

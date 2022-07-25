@@ -1,0 +1,68 @@
+<%- include('./blocks/head.ejs')%>
+<%- include('./blocks/navbar.ejs')%>
+<div class="container">
+    <div class="result">
+        
+        <a href="/tests/<%=test.id%>" class="result__btn">Вернуться к тесту</a>
+        
+        <%if ((typeof data) == 'string') 
+        {
+            %>
+                <p><%=data%></p>
+            <%
+        }
+        else 
+        {
+        %>
+        <div class="result__score">
+            <%=rightCount%>/<%=data.length%>
+        </div>
+        <div class="result__items">
+            <%
+                for(let i = 0; i < data.length; i++)
+                {
+                    if(data[i].check)
+                    {
+                        %>
+                        <div class="result__item">
+                            <div class="result__question">
+                                <%=i+1%>) <%=data[i].question%>
+                            </div>
+                            <div class="result__answer">
+                                Ваш ответ: <span><%=data[i].answer%></span>
+                            </div>
+                        </div>
+                        <%
+                    }
+                    else
+                    {
+                        %>
+                        <div class="result__item result__item__mistake">
+                            <div class="result__question">
+                                <%=i+1%>) <%=data[i].question%>
+                            </div>
+                            <div class="result__answer">
+                                Ваш ответ: <span><%=data[i].answer%></span>
+                            </div>
+                            <div class="result__answer result__answer__right">
+                                Правильный ответ: <span><%=data[i].rightAnswer%></span>
+                            </div>
+                        </div>
+                        <%
+                    }
+                }
+
+            %>
+
+        </div>
+
+        <%
+        }  
+        %>
+    </div>
+</div>
+
+
+<%- include('./blocks/footer.ejs')%>
+
+

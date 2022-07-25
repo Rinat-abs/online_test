@@ -1,0 +1,71 @@
+<%- include('./blocks/head.ejs')%>
+<%- include('./blocks/navbar.ejs')%>
+
+
+<div class="progress">
+    <div class="container">
+        <%
+            if(results.length == 0)
+            {
+                %>
+                <div style="color: rgb(197, 22, 22); font-size: 25px; margin: 0 auto; margin-top: 50px;">Здесь пока пусто</div>
+                
+                <%
+            }
+            else 
+            {
+                %>
+                <table class="table">
+                    <thead>
+                        <th>
+                            Название теста
+                        </th>
+                        <th>
+                            Результат
+                        </th>
+                        <th>
+                            Время 
+                        </th>
+                    </thead>
+                    <tbody>
+                        <%
+                            for(let i = results.length; i > 0; i--)
+                            {   
+                                let date = results[i - 1].date;
+                                %>
+                                <tr>
+                                    <td><%=results[i - 1].test_name%></td>    
+                                    <td class="table__result"><%=results[i - 1].result%></td>  
+                                    <td class="table__result">
+                                    <%  
+                                        let 
+                                            minutes = date.getMinutes(),
+                                            hour = date.getHours(),
+                                            day = date.getDate(),
+                                            month = date.getMonth() + 1;
+                                        if(date.getDate() < 10) day = '0' + date.getDate();
+                                        if(date.getMonth() < 10) month = '0' + month;
+                                        if(date.getHours() < 10) hour = '0' + (date.getHours());
+                                        if(date.getMinutes() < 10) minutes = '0' + (date.getMinutes());
+                                        
+                                    %>
+                                    <%=day%>.<%=month%>.<%=date.getFullYear()%>,
+                                    <%=hour%></b>:<%=minutes%>
+            
+                                    </td>  
+                                </tr>
+                                <%
+                            }
+                        %>
+                    </tbody>
+                </table>
+                <%
+            }
+        %>
+    </div>
+</div>
+
+
+
+
+<%- include('./blocks/footer.ejs')%>

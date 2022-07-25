@@ -1,0 +1,59 @@
+<%- include('./blocks/head.ejs')%>
+<%- include('./blocks/navbar.ejs')%>
+
+
+
+<div class="container">
+    <a href="/tests/<%=test.id%>" class="result__btn" style="margin-top: 40px;">Вернуться к тесту</a>
+
+    <form action="/tests/result" method="POST" class="test__pass">
+    <input type="hidden" value="<%=test.id%>" name="testId">
+    <%
+    for(let q = 0; q < randomArr.length; q++)
+    {
+        let testAnswer = [];
+
+        for(let i = 0; i < test.count; )
+        {
+            let tempNum = getRandomNum(test.count);
+            if(testAnswer.indexOf(tempNum) == -1)
+            {
+                testAnswer.push(tempNum);
+                i++
+            }
+        }
+
+        %>
+        <div class="test__pass__wrapper">
+            <div class="test__pass__question"> <span><%=q+1%>)</span> <%=testArr[randomArr[q]].question%></div>
+            <input type="hidden" name="question<%=q+1%>" value="<%=randomArr[q]%>">
+            <div class="test__pass__answers">
+                <%
+
+                for(let i = 0; i < testAnswer.length; i++)
+                {
+                    %>
+                        <div class="test__pass__answer">
+                            <input type="radio" id="answer<%=q+1%><%=i+1%>" name="answer<%=q+1%>" value="<%=testArr[randomArr[q]].answers[testAnswer[i]]%>">
+                            <label for="answer<%=q+1%><%=i+1%>"><%=testArr[randomArr[q]].answers[testAnswer[i]]%></label>    
+                        
+                        </div>
+
+
+                    <%
+                }
+
+                %>
+            </div>
+        </div>
+        <%
+    }
+
+    %>
+    <input type="hidden" name="_csrf" value="<%=csrf%>">
+    <button type="submit" class="test__pass__btn">Проверить</button>
+    </form>
+</div>
+<%- include('./blocks/footer.ejs')%>
+
+

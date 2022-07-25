@@ -1,0 +1,307 @@
+.test {
+    max-width: 350px;
+    margin: 0 auto;
+    margin-top: 70px;
+    box-sizing: border-box;
+
+
+
+    &__wrapper {
+        margin-bottom: 30px;
+        &>label {
+            font-size: 18px;
+            color: #4b85e3
+        }
+
+        &_select {
+            position: relative;
+            width: 50px;
+            border: 1px solid  #4b85e3;
+
+            border-radius: 6px;
+            overflow: hidden; 
+            height: 34px;
+            &::before{
+                content: '»';
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                font-size: 22px;
+                top: 12px;
+                right: -5px;
+                z-index: 1;
+                transform: rotate(90deg);
+                color: #4b85e3;
+                z-index: -1;
+                cursor: pointer
+    
+            }
+            
+        }
+
+    }
+
+    &__name {
+        display: block;
+        width: 90%;
+        margin-top: 10px;
+        margin: 0 auto;
+        margin-top: 10px;
+        border: 1px solid  #4b85e3;
+        padding: 10px  15px;
+        border-radius: 7px;
+        font-size: 18px;
+        outline: none;
+
+
+    }
+    &__file {
+        display: block;
+    }
+
+    &__container {
+        outline: 2px dashed  #4b85e3;
+        padding: 10px;
+        color:  #4b85e3;
+        font-size: 20px;
+
+        &>label {
+            cursor: pointer;
+            
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        &>input {
+            margin-top: 10px;
+            font-size: 20px;
+            font-size: 15px;
+          
+            text-align: center;
+            cursor: pointer
+        }
+        
+        
+    }
+
+    &__btn {
+        outline: none;
+
+        font-size: 20px;
+        border-radius: 5px;
+        border: 1px solid  #4b85e3;
+        padding: 5px 7px;
+        background-color:  #4b85e3;
+        margin: 0 auto;
+        margin-top: 10px;
+        color: #fff;
+        cursor: pointer;
+        transition: 0.3s all;
+
+        &:hover {
+            background-color:  rgba($color: #4b85e3, $alpha: 0.7);
+        }
+    }
+
+    &__title {
+        color:  #4b85e3;
+        text-align: center;
+        font-size: 25px;
+
+    }
+
+    &_test {
+        max-width: 600px;
+    }
+
+    &__items {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+
+
+    }
+
+    &__item {
+        position: relative;
+        font-size: 20px;
+        text-align: center;
+        width: 47%;
+        box-shadow: 0px 0px 10px 0px rgba(105,100,100,1);
+        border-radius: 7px;
+        transition: 0.5s all;
+        min-height: 230px;
+
+        &__title {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 10px;
+            // height: 50px;
+            font-size: 18px;
+        }
+
+        &>a {
+            display: block;
+            position: absolute;
+            background-color:  #4b85e3;
+            width: 100px;
+            color: #fff;
+            padding: 5px;
+            margin: 0 auto;
+            border-radius: 7px;
+            transition: 0.3s all;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 10px;
+
+
+            &:hover {
+                background-color: rgb(60, 191, 125)
+            }
+
+        }
+
+        &:hover {
+            transform: scale(1.05)
+        }
+
+        &__extra {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            margin: 0 auto;
+            user-select: none;
+
+            
+
+        }
+        &__reset {
+            width: 100px;
+            
+
+
+            &> button {
+                width: 100%;
+                background-color: rgb(199, 69, 69);
+                border: 1px solid rgb(240, 12, 12);
+                font-size: 18px;
+                padding: 5px;
+                height: 100%;
+                color: #fff;
+                transition: 0.4s all;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: rgb(240, 12, 12);
+                }
+            }
+        }
+        &__cycle {
+            background-color: rgb(67, 201, 116);
+
+            width: 100px;
+            // margin: 0 auto;
+            padding: 5px;
+            color: #fff;
+            border: 1px solid rgb(25, 95, 11)
+        }
+
+        
+
+
+    }
+
+
+    &__count {
+        position: relative;
+        cursor: pointer;
+        height: 34px;
+        padding: 5px;
+        border: none;
+        -webkit-appearance: none;
+        font-size: 20px;
+        width: 60px;
+        background-color: transparent;
+
+        
+
+        
+    }
+
+    &__pass {
+        margin-top: 70px;
+
+        &__wrapper {
+            margin-bottom: 40px;
+        }
+        
+        &__answers {
+            margin-top: 10px;
+        }
+
+        &__question
+        {
+            font-size: 23px;
+        }
+
+        &__answer {
+            margin-top: 18px;
+
+            &>label {
+                margin-left: 15px;
+                cursor: pointer;
+            }
+            input[type='radio'] {
+                cursor: pointer;
+                position: relative;
+                height: 18px;
+                width: 18px;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                outline: none;
+            }
+            input[type='radio']::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                background-color: white;
+                border: 2px solid #4b85e3;
+            }
+            input[type='radio']:checked::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background-color:#4b85e3;
+                transform: translate(-50%, -50%);
+                visibility: visible;
+            }
+        }
+
+        &__btn {
+            cursor: pointer;
+            font-size: 25px;
+            background-color: rgb(60, 191, 125);
+            border: none;
+            color: #fff;
+            padding: 8px;
+            border-radius: 7px;
+            transition: 0.3s all;
+
+            &:hover {
+                background-color: rgb(17, 102, 60);
+            }
+        }
+    }
+
+}

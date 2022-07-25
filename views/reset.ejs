@@ -1,0 +1,25 @@
+<%- include('./blocks/head.ejs')%>
+<%- include('./blocks/navbar.ejs')%>
+
+<div class="container">
+        
+    <form action="reset" class="form" method="POST">
+        <%
+            if( (typeof resetError) != 'undefined')
+            {
+                %>
+                    <p class="error"><%=resetError%></p>    
+                <%
+            }
+        %> 
+        <div class="form__container">
+            <label for="email">Введите ваш E-mail</label>
+            <input type="email" class="form__input" id="email" name="email" placeholder="E-mail">
+            <input type="hidden" name="_csrf" value="<%=csrf%>">
+        <button class="form__btn" type="submit">Восстановить</button>
+    </form>
+</div>
+
+
+
+<%- include('./blocks/footer.ejs')%>

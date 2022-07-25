@@ -1,0 +1,19 @@
+.errors {
+    margin-top: 50px;
+    color: #0c5ddf;
+    &__msg {
+        margin-top: 10px;
+        &>a {
+            color: #0c5ddf;
+            font-size: 18px;
+            text-decoration: underline;
+            transition: 0.3s all;
+            cursor: pointer;
+            &:hover {
+                text-decoration: none;
+            }
+
+            
+        }
+    }
+}

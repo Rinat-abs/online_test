@@ -1,0 +1,30 @@
+<%- include('./blocks/head.ejs')%>
+<%- include('./blocks/navbar.ejs')%>
+
+<div class="container">
+        
+    <form action="change_pass" method="POST" class="form">   
+    <%
+        if( (typeof changePassError) != 'undefined')
+        {
+            %>
+                <p class="error"><%=changePassError%></p>    
+            <%
+        }
+    %> 
+        <div class="form__container">
+            <label for="pass">Введите старый пароль</label>
+            <input type="password" class="form__input" id="pass" name="pass" placeholder="Пароль" required>
+        </div>
+        <div class="form__container">
+            <label for="new_pass">Введите новый пароль</label>
+            <input type="password" class="form__input" id="new_pass" name="new_pass" placeholder="Новый пароль" required>
+        </div>
+        <input type="hidden" name="_csrf" value="<%=csrf%>">
+        <button class="form__btn" type="submit">Сменить</button>
+    </form>
+</div>
+
+
+
+<%- include('./blocks/footer.ejs')%>

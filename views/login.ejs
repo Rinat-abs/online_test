@@ -1,0 +1,50 @@
+<%- include('./blocks/head.ejs')%>
+<%- include('./blocks/navbar.ejs')%>
+
+<div class="container">
+       
+    <form action="/login" class="form" method="POST">
+        <%
+            if( (typeof loginError) != 'undefined')
+            {
+                %>
+                    <p class="error"><%=loginError%></p>    
+                <%
+            }
+        %> 
+        <%
+            if( (typeof registerSuccess) != 'undefined')
+            {
+                %>
+                    <p class="success"><%=registerSuccess%></p>    
+                <%
+            }
+        %> 
+        <%
+            if( (typeof confirmSuccess) != 'undefined')
+            {
+                %>
+                    <p class="success"><%=confirmSuccess%></p>    
+                <%
+            }
+        %> 
+        <div class="form__container">
+            <label for="email">Введите E-mail</label>
+            <input type="email" class="form__input" id="email" name="email" placeholder="E-mail">
+            
+        </div>
+        <div class="form__container">
+            <label for="password">Введите пароль</label>
+            <input type="password" class="form__input" id="password" name="password" placeholder="Пароль">
+            <div class="form__forget">
+                    <a href="login/reset" >Забыл пароль</a>
+            </div>
+        </div>
+        <input type="hidden" name="_csrf" value="<%=csrf%>">
+        <button class="form__btn" type="submit">Войти</button>
+    </form>
+</div>
+
+
+
+<%- include('./blocks/footer.ejs')%>

@@ -1,0 +1,89 @@
+<%- include('./blocks/head.ejs')%>
+<%- include('./blocks/navbar.ejs')%>
+
+
+<div class="container">
+        
+    <form action="confirm" class="form" method="POST">
+        <%
+            if(error.length > 0)
+            {
+            %>
+                <br>
+                <p class="error"><%=error%></p>   
+                <br>
+            <%
+            }
+        %> 
+        <%
+            if( (typeof confirmError) != 'undefined')
+            {
+                %>
+                    <br>
+                    <p class="error"><%=confirmError%></p> 
+                    <br>   
+                <%
+            }
+        %> 
+        <div class="form__confirm">
+            На данный  E-mail адрес <span><%=email%></span> , был отправлен секретный код
+            <br>
+            <br>
+            <p>Данный код действует в течении часа</p>
+        </div>
+        <div class="form__container">
+            <label for="secretKey">Введите секретный код</label>
+            <input type="text" class="form__input form__input_key" id="secretKey" name="secretKey" placeholder="Код" placeholder="Код" minlength="6" maxlength="6">
+            <input type="hidden" class="form__input"  name="email" value="<%=email%>">
+        
+        </div>
+        <div class="form__container">
+            <label for="password">Введите новый пароль</label>
+            <input type="password" class="form__input" id="password" name="password" placeholder="Новый пароль" >
+        </div>
+        <input type="hidden" name="_csrf" value="<%=csrf%>">
+        <button class="form__btn" type="submit">Изменить пароль</button>
+
+    </form>
+</div>
+
+<script>
+        
+        const input = document.getElementById('secretKey');
+
+        input.addEventListener('keydown', function(event) {
+            
+            if ( event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 ||
+               
+                (event.keyCode == 65 && event.ctrlKey === true) ||
+                (event.keyCode == 67 && event.ctrlKey === true) ||
+                (event.keyCode == 86 && event.ctrlKey === true) ||
+                (event.keyCode >= 35 && event.keyCode <= 39)) {
+                
+        
+                return;
+            } else {
+                
+                if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
+                    event.preventDefault();
+                }
+            }
+
+            for(let i = 0; i < input.value.length; i++)
+            {
+                input.value = input.value.trim();
+                input.value = input.value.replace(/\D/, '');
+
+            }
+        });
+        input.addEventListener('input', () => {
+            for(let i = 0; i < input.value.length; i++)
+            {
+                input.value = input.value.trim();
+                input.value = input.value.replace(/\D/g, '');
+
+            }
+        })
+    </script>
+
+<%- include('./blocks/footer.ejs')%>

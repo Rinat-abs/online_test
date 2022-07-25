@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Museo Sans Cyrl', sans-serif;
+}
+
+
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+
+.no_scroll{
+    overflow: hidden;
+}
+
+@import 'blocks/preloader';
+@import 'blocks/header';
+@import 'blocks/form';
+@import 'blocks/profile';
+@import 'blocks/tests';
+@import 'blocks/result';
+@import 'blocks/progress';
+@import 'blocks/errors';
+@import 'blocks/search';
+@import 'blocks/footer';
+@import 'blocks/404';
+@import 'blocks/media';

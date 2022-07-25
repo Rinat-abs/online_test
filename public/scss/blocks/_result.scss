@@ -1,0 +1,66 @@
+.result {
+    margin-top: 50px;
+    &__question {
+        font-size: 31px;
+        margin-bottom: 10px;
+
+    }
+
+    &__item {
+        margin-bottom: 18px;
+        padding: 20px;
+        color: rgb(255, 255, 255);
+        outline: 2px solid rgb(5, 155, 255);
+        background-color: #4b85e3;
+        
+
+        &__mistake {
+            outline: 2px solid rgb(255, 5, 5);
+            background-color: #df4d4d;
+        }
+    }
+
+    &__answer {
+        font-size: 18px;
+        
+
+        &>span {
+            font-size: 22px;
+        }
+        &__right {
+            background-color:  rgb(60, 191, 125);
+            padding: 5px;
+            margin-top: 15px;
+        }
+    }
+
+    &__btn {
+        display: block;
+        width: 170px;
+        padding: 8px;
+        color: #fff;
+        border-radius: 7px;
+        font-size: 20px;
+        background-color:  rgb(60, 191, 125);
+        margin-bottom: 20px;
+        transition: 0.4s all;
+
+        &:hover {
+            background-color:  rgb(26, 157, 91);
+        }
+
+    }
+
+    &__score {
+        margin-bottom: 20px;
+        background-color:  #4b85e3;
+        width: 80px;
+        font-size: 25px;
+        text-align: center;
+        padding: 5px;
+        border-radius: 7px;
+        color:rgb(255, 255, 255)
+    }
+
+    
+}

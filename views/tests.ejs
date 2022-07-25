@@ -1,0 +1,80 @@
+<%- include('./blocks/head.ejs')%>
+<%- include('./blocks/navbar.ejs')%>
+
+<div class="container">
+    <%
+            if( (typeof error) != 'undefined')
+            {
+                %>
+                    <p class="error" style="margin-top: 30px;"><%=error%></p>    
+                <%
+            }
+    %> 
+    <form action="/tests" class="test" method="POST" enctype="multipart/form-data">
+        <div class="test__wrapper">
+            <label for="test_name">Введите название теста</label>
+            <input type="text" name="test_name" id="test_name" class="test__name" placeholder="Название теста" required>
+        </div>
+
+        <p style="color: #4b85e3; font-size: 18px;">Количество ответов в одном вопросе</p>
+        <div class="test__wrapper test__wrapper_select">
+            <select class="test__count" name="count" id="count" required>
+                <option value="5" selected>5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="6">6</option>
+            </select>
+        </div>
+        <div class="test__wrapper">
+            
+            <div class="test__container">
+                <label for="test">Выберите файл (формат .txt, размет до 1 MB)</label>
+                <input type="file" name="test" id="test" class="test__file"  required>
+                
+                
+            </div>
+        </div>
+
+        <input type="hidden" name="_csrf" value="<%=csrf%>">
+
+        <button class="test__btn" type="submit">Сохранить</button>
+    </form>
+    <div class="tests">
+        <h2 class="tests__title">
+            Ваши тесты
+        </h2>
+        <div class="tests__items">
+            <%
+                if(tests.length != 0)
+                {
+                    for(let i = 0; i < tests.length; i++ )
+                    {
+                    %>
+                    <div class="tests__item">
+                        <div class="tests__item__name"><%=tests[i].name%>
+                               
+                        </div>
+                        <div class="tests__item__btns">
+                            <a href="/tests/<%=tests[i].id%>" class="tests__item__btns__open">Открыть</a>
+                            <a href="/tests/<%=tests[i].id%>/search" class="tests__item__btns__search">Поиск</a> 
+                            <form action="/tests/remove" method="POST">
+                                <input type="hidden" name="testId" value="<%=tests[i].id%>">
+                                <input type="hidden" name="_csrf" value="<%=csrf%>">
+                                <button class="tests__item__btns__delete">Удалить</button>
+                            </form>                        
+                        </div>
+                    </div>
+                    <%
+                    }
+                } else {
+                    %>
+                    <div style="color: rgb(197, 22, 22); font-size: 25px; margin: 0 auto;">Здесь пока пусто</div>
+                    <%
+                }
+            %>
+        </div>
+    </div>
+</div>
+
+
+<%- include('./blocks/footer.ejs')%>

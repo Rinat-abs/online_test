@@ -1,0 +1,13 @@
+<%- include('./blocks/head.ejs')%>
+<%- include('./blocks/navbar.ejs')%>
+<div class="container">
+    <div class="profile">
+        <div class="profile__name">Ваше имя:  <span><%=name%></span></div>
+        <div class="profile__login">Ваш E-mail: <span><%=email%></span></div>
+        <div class="profile__pass">
+            <a href="/profile/change_pass">Сменить пароль</a>
+        </div>
+    </div>
+</div>
+<%- include('./blocks/footer.ejs')%>
+
